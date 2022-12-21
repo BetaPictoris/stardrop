@@ -86,3 +86,18 @@ const categories = {
     ],
   },
 };
+
+export function getRandomSong() {
+  const category =
+    Object.keys(categories)[
+      Math.floor(Math.random() * Object.keys(categories).length)
+    ];
+  const subCat = Object.keys(categories[category])[
+    Math.floor(Math.random() * Object.keys(categories[category]).length)
+  ];
+  const file =
+    categories[category][subCat][
+      Math.floor(Math.random() * categories[category][subCat].length)
+    ];
+  return `${cdnBaseURL}/sdv/music/${category}/${subCat}/${file}.mp3`;
+}

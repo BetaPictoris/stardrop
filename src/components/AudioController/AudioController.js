@@ -1,7 +1,9 @@
 import React from "react";
+import { getRandomSong } from "./data";
 
 export default function AudioController(props) {
   const [playing, setPlaying] = React.useState(false);
+  const [song, setSong] = React.useState(getRandomSong());
 
   // Start/Stop musicPlayer
   function toggleMusicPlayer() {
@@ -19,7 +21,7 @@ export default function AudioController(props) {
   return (
     <>
       <audio id="musicPlayer">
-        <source src="//cdn.ozx.me/sdv/music/Seasons/Fall/GhostSynth.mp3" />
+        <source src={song} />
       </audio>
 
       <button onClick={toggleMusicPlayer}>{playing ? "Pause" : "Play"}</button>
