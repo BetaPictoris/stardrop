@@ -1,4 +1,3 @@
-$mediaDisplayW: 25%;
 
 .MediaDisplay {
   border: 9px solid transparent;
@@ -8,8 +7,6 @@ $mediaDisplayW: 25%;
   border-image-source: none;
   border-image-width: 1;
   border-image: url("//cdn.ozx.me/sdv/menu_border.png") 15 stretch;
-
-  width: $mediaDisplayW;
 }
 
 .MediaDisplayInner {

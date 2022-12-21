@@ -1,6 +1,8 @@
 import React from "react";
 import { getRandomSong, getTitle } from "./data";
 
+import "./styles/AudioController.scss";
+
 export default function AudioController(props) {
   const [playing, setPlaying] = React.useState(false);
   const [title, setTitle] = React.useState("");
@@ -39,13 +41,13 @@ export default function AudioController(props) {
   }
 
   return (
-    <>
+    <div className="AudioController">
       <audio id="musicPlayer" onEnded={updateSong}>
         <source id="musicPlayerSource" src={getRandomSong()} />
       </audio>
 
-      <p>{playing ? title : "Not playing..."}</p>
+      <p className="songTitle">{playing ? title : "Not playing..."}</p>
       <button onClick={toggleMusicPlayer}>{playing ? "Pause" : "Play"}</button>
-    </>
+    </div>
   );
 }

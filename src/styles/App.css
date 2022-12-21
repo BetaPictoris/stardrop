@@ -2,3 +2,13 @@
   min-height: 100vh;
   background: url("//cdn.ozx.me/sdv/background.png");
 }
+
+.MediaPlayer {
+  position: absolute;
+  
+  height: 10%;
+  width: 50%;
+
+  top: calc(50vh - 20%);
+  left: calc(50vw - 25%);
+}
