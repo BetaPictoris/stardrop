@@ -11,8 +11,6 @@ export default function AudioController(props) {
   function toggleMusicPlayer() {
     const musicPlayer = document.getElementById("musicPlayer");
 
-    updateMetadata();
-
     if (playing) {
       musicPlayer.pause();
       setPlaying(false);
@@ -26,9 +24,8 @@ export default function AudioController(props) {
   // Sets a new URL for "song"
   function updateSong() {
     const musicPlayer = document.getElementById("musicPlayer");
-    document.getElementById("musicPlayerSource").src = getRandomSong();
-
-    updateMetadata();
+    const newSong = getRandomSong();
+    document.getElementById("musicPlayerSource").src = newSong;
 
     musicPlayer.pause();
     musicPlayer.load();
@@ -37,12 +34,13 @@ export default function AudioController(props) {
   }
 
   async function updateMetadata() {
-    setTitle(await getTitle(document.getElementById("musicPlayerSource").src));
+    const url = document.getElementById("musicPlayerSource").src;
+    setTitle(await getTitle(url));
   }
 
   return (
     <div className="AudioController">
-      <audio id="musicPlayer" onEnded={updateSong}>
+      <audio id="musicPlayer" onEnded={updateSong} onPlay={updateMetadata}>
         <source id="musicPlayerSource" src={getRandomSong()} />
       </audio>
 
