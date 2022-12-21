@@ -101,3 +101,20 @@ export function getRandomSong() {
     ];
   return `${cdnBaseURL}/sdv/music/${category}/${subCat}/${file}.mp3`;
 }
+
+export async function getTitle(url) {
+  return fetch(url)
+    .then((response) => response.text())
+    .then((data) => {
+      let d = data.slice(0, 925);
+
+      let title = d.match(new RegExp("TIT2(.*)TPE1"))[0];
+      title = title
+        .replace("TIT2", "")
+        .replace("TPE1", "")
+        .slice(9, title.length);
+
+      // TODO: Replace replacement chars before returning.
+      return title;
+    });
+}
