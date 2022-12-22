@@ -32,6 +32,7 @@ export default function AudioController(props) {
     musicPlayer.load();
     musicPlayer.play();
     setPlaying(true);
+    updateMetadata();
   }
 
   async function updateMetadata() {
