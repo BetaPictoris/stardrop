@@ -6,16 +6,28 @@ export default function SettingsOption(props) {
     inputType = "checkbox";
   }
 
+  function onChange(event) {
+    if (props.option.type === "bool") {
+      if (sessionStorage.getItem(props.option.name) === "off") {
+        sessionStorage.setItem(props.option.name, "on");
+        return null;
+      }
+
+      sessionStorage.setItem(props.option.name, "off");
+      return null;
+    }
+  }
+
   return (
     <span className="SettingsOption">
-      <label for={`settingsOption${props.option.name}`}>
+      <label htmlFor={`settingsOption${props.option.name}`}>
         {props.option.label}
       </label>
       <input
         id={`settingsOption${props.option.name}`}
         type={inputType}
-        value={props.option.name}
-        checked={props.option.name}
+        checked={sessionStorage.getItem(props.option.name) === "on"}
+        onChange={onChange}
       />
 
       <p>{props.option.desc}</p>
