@@ -106,15 +106,14 @@ export async function getTitle(url) {
   return fetch(url)
     .then((response) => response.text())
     .then((data) => {
-      let d = data.slice(0, 925);
-
-      let title = d.match(new RegExp("TIT2(.*)TPE1"))[0];
+      let title = data.slice(0, 202);
       title = title
-        .replace("TIT2", "")
-        .replace("TPE1", "")
-        .slice(9, title.length);
-
-      // TODO: Replace replacement chars before returning.
+        .match(new RegExp("��(.*)TPE1"))
+        .toString()
+        .match(new RegExp("TPE1(.*)"))
+        .toString();
+      title = title.split(",")[1].replaceAll("\u0000", "");
+      console.log(title);
       return title;
     });
 }
