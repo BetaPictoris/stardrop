@@ -10,6 +10,7 @@ export default function AudioController(props) {
   // Start/Stop musicPlayer
   function toggleMusicPlayer() {
     const musicPlayer = document.getElementById("musicPlayer");
+    setTitle("...");
 
     if (playing) {
       musicPlayer.pause();
