@@ -46,7 +46,14 @@ export default function AudioController(props) {
       </audio>
 
       <p className="songTitle">{playing ? title : "Not playing!"}</p>
-      <button onClick={toggleMusicPlayer}>{playing ? "Pause" : "Play"}</button>
+      <button className="AudioControllerBttn" onClick={toggleMusicPlayer}>
+        <img
+          width="48px"
+          src={
+            playing ? "//cdn.ozx.me/sdv/stop.png" : "//cdn.ozx.me/sdv/play.png"
+          }
+        />
+      </button>
     </div>
   );
 }
