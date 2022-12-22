@@ -113,7 +113,6 @@ export async function getTitle(url) {
         .match(new RegExp("TPE1(.*)"))
         .toString();
       title = title.split(",")[1].replaceAll("\u0000", "");
-      console.log(title);
       return title;
     });
 }
