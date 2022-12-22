@@ -39,9 +39,18 @@ export default function AudioController(props) {
     setTitle(await getTitle(url));
   }
 
+  function handleMediaKeyPause() {
+    setPlaying(false);
+  }
+
   return (
     <div className="AudioController">
-      <audio id="musicPlayer" onEnded={updateSong} onPlay={updateMetadata}>
+      <audio
+        id="musicPlayer"
+        onEnded={updateSong}
+        onPlay={updateMetadata}
+        onPause={handleMediaKeyPause}
+      >
         <source id="musicPlayerSource" src={getRandomSong()} />
       </audio>
 
@@ -52,6 +61,7 @@ export default function AudioController(props) {
           src={
             playing ? "//cdn.ozx.me/sdv/stop.png" : "//cdn.ozx.me/sdv/play.png"
           }
+          alt={playing ? "Pause" : "Play"}
         />
       </button>
     </div>
