@@ -1,4 +1,4 @@
-const cdnBaseURL = "https://cdn.ozx.me";
+const cdnBaseURL = "//cdn.ozx.me";
 
 const categories = {
   Games: {
