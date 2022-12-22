@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles/Settings.scss";
 
+import SettingsOptions from "./SettingsOptions";
+
 export default function Settings() {
   const [open, setOpen] = React.useState(false);
 
@@ -18,6 +20,8 @@ export default function Settings() {
         <div className="SettingsDialog">
           <div className="SettingsDialogInner">
             <h2>Settings</h2>
+
+            <SettingsOptions />
           </div>
         </div>
       )}
