@@ -1,3 +1,5 @@
+import "./styles/SettingsOption.scss";
+
 export default function SettingsOption(props) {
   let inputType = "";
   if (props.option.type === "bool") {
@@ -12,8 +14,11 @@ export default function SettingsOption(props) {
       <input
         id={`settingsOption${props.option.name}`}
         type={inputType}
-        value={props.value}
+        value={props.option.name}
+        checked={props.option.name}
       />
+
+      <p>{props.option.desc}</p>
     </span>
   );
 }
