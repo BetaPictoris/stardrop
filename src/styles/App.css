@@ -1,6 +1,7 @@
 .App {
   min-height: 100vh;
   background: url("//cdn.ozx.me/sdv/background.png");
+  background-position: center;
 }
 
 .MediaPlayer {
