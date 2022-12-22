@@ -27,6 +27,7 @@ export default function AudioController(props) {
     const musicPlayer = document.getElementById("musicPlayer");
     const newSong = getRandomSong();
     document.getElementById("musicPlayerSource").src = newSong;
+    setTitle("...");
 
     musicPlayer.pause();
     musicPlayer.load();
