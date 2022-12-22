@@ -45,7 +45,7 @@ export default function AudioController(props) {
         <source id="musicPlayerSource" src={getRandomSong()} />
       </audio>
 
-      <p className="songTitle">{playing ? title : "Not playing..."}</p>
+      <p className="songTitle">{playing ? title : "Not playing!"}</p>
       <button onClick={toggleMusicPlayer}>{playing ? "Pause" : "Play"}</button>
     </div>
   );

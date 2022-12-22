@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Stardew Valley';
   src: url('https: //cdn.ozx.me/fonts/sdv/StardewValley.eot');
@@ -14,7 +13,7 @@
 
 body {
   margin: 0;
-  font-family: 'StardewValleyRegular', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Stardew Valley', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
