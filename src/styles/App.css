@@ -13,3 +13,15 @@
   top: calc(50vh - 20%);
   left: calc(50vw - 25%);
 }
+
+.SettingsBttn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.ImageButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+}

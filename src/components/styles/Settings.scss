@@ -1,0 +1,25 @@
+.SettingsDialog {
+  position: absolute;
+  top: 25vh;
+  left: 10vw;
+  
+  border: 9px solid transparent;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-image: url("//cdn.ozx.me/sdv/menu_border.png") 15 stretch;
+}
+
+.SettingsDialogInner {
+  background-color: #f5f5f5;
+
+  width: 75vw;
+  height: 50vh;
+
+  > h2 {
+    padding: 0;
+    margin: 0;
+  }
+}
