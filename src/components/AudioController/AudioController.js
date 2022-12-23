@@ -7,22 +7,31 @@ export default function AudioController(props) {
   const [playing, setPlaying] = React.useState(false);
   const [title, setTitle] = React.useState("");
 
+  React.useEffect(() => {
+    const rainPlayer = document.getElementById("rainPlayer");
+    if (
+      !document.getElementById("musicPlayer").paused &&
+      props.playRain === "on"
+    ) {
+      console.log("Check A");
+      rainPlayer.play();
+    } else {
+      console.log("Check B");
+      rainPlayer.pause();
+    }
+  }, [props.playRain, playing]);
+
   // Start/Stop musicPlayer
   function toggleMusicPlayer() {
     const musicPlayer = document.getElementById("musicPlayer");
-    const rainPlayer = document.getElementById("rainPlayer");
     setTitle("...");
 
     if (playing) {
       musicPlayer.pause();
-      rainPlayer.pause();
       setPlaying(false);
     } else {
       musicPlayer.load();
       musicPlayer.play();
-      if (props.playRain === "on") {
-        rainPlayer.play();
-      }
       setPlaying(true);
     }
   }
@@ -61,7 +70,14 @@ export default function AudioController(props) {
         <source id="musicPlayerSource" src={getRandomSong()} />
       </audio>
       <audio id="rainPlayer" onPause={handleMediaKeyPause}>
-        <source id="rainPlayerSource" src={`//cdn.ozx.me/sounds/rain.ogg`} />
+        <source
+          id="rainPlayerSource"
+          src={
+            props.playRain === "on"
+              ? `//cdn.ozx.me/sounds/rain.ogg`
+              : `//cdn.ozx.me/sounds/sdv_clear.ogg`
+          }
+        />
       </audio>
 
       <p className="songTitle">{playing ? title : "Not playing!"}</p>
