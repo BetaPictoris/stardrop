@@ -62,7 +62,7 @@ export default function AudioController(props) {
         onClick={toggleMusicPlayer}
       >
         <img
-          width="48px"
+          width="40px"
           src={
             playing ? "//cdn.ozx.me/sdv/stop.png" : "//cdn.ozx.me/sdv/play.png"
           }
