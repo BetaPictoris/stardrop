@@ -9,6 +9,7 @@ export default function AudioController(props) {
 
   React.useEffect(() => {
     const rainPlayer = document.getElementById("rainPlayer");
+    rainPlayer.volume = 0.7;
     if (
       !document.getElementById("musicPlayer").paused &&
       props.playRain === "on"
