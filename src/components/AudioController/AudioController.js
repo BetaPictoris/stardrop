@@ -14,10 +14,8 @@ export default function AudioController(props) {
       !document.getElementById("musicPlayer").paused &&
       props.playRain === "on"
     ) {
-      console.log("Check A");
       rainPlayer.play();
     } else {
-      console.log("Check B");
       rainPlayer.pause();
     }
   }, [props.playRain, playing]);
