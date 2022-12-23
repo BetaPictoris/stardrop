@@ -10,14 +10,19 @@ export default function AudioController(props) {
   // Start/Stop musicPlayer
   function toggleMusicPlayer() {
     const musicPlayer = document.getElementById("musicPlayer");
+    const rainPlayer = document.getElementById("rainPlayer");
     setTitle("...");
 
     if (playing) {
       musicPlayer.pause();
+      rainPlayer.pause();
       setPlaying(false);
     } else {
       musicPlayer.load();
       musicPlayer.play();
+      if (props.playRain === "on") {
+        rainPlayer.play();
+      }
       setPlaying(true);
     }
   }
@@ -54,6 +59,9 @@ export default function AudioController(props) {
         onPause={handleMediaKeyPause}
       >
         <source id="musicPlayerSource" src={getRandomSong()} />
+      </audio>
+      <audio id="rainPlayer" onPause={handleMediaKeyPause}>
+        <source id="rainPlayerSource" src={`//cdn.ozx.me/sounds/rain.ogg`} />
       </audio>
 
       <p className="songTitle">{playing ? title : "Not playing!"}</p>

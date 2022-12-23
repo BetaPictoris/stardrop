@@ -2,11 +2,11 @@ import AudioController from "./AudioController";
 
 import "./styles/MediaDisplay.scss";
 
-export default function MediaDisplay() {
+export default function MediaDisplay(props) {
   return (
     <div className="MediaDisplay">
       <div className="MediaDisplayInner">
-        <AudioController />
+        <AudioController playRain={props.playRain} />
       </div>
     </div>
   );
