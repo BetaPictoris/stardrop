@@ -1,21 +1,26 @@
+import React from "react";
 import "./styles/SettingsOption.scss";
 
 export default function SettingsOption(props) {
+  const [value, setValue] = React.useState(
+    sessionStorage.getItem(props.option.name)
+  );
+
   let inputType = "";
   if (props.option.type === "bool") {
     inputType = "checkbox";
   }
 
-  function onChange(event) {
+  function onChange() {
     if (props.option.type === "bool") {
       if (sessionStorage.getItem(props.option.name) === "off") {
         sessionStorage.setItem(props.option.name, "on");
-        return null;
+      } else {
+        sessionStorage.setItem(props.option.name, "off");
       }
-
-      sessionStorage.setItem(props.option.name, "off");
-      return null;
     }
+
+    setValue(sessionStorage.getItem(props.option.name));
   }
 
   return (
@@ -26,7 +31,7 @@ export default function SettingsOption(props) {
       <input
         id={`settingsOption${props.option.name}`}
         type={inputType}
-        checked={sessionStorage.getItem(props.option.name) === "on"}
+        checked={value === "on"}
         onChange={onChange}
       />
 
