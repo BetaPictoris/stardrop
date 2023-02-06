@@ -23,14 +23,18 @@ export default function AudioController(props) {
   // Start/Stop musicPlayer
   function toggleMusicPlayer() {
     const musicPlayer = document.getElementById("musicPlayer");
+    const rainPlayer = document.getElementById("rainPlayer");
     setTitle("...");
 
     if (playing) {
       musicPlayer.pause();
+      rainPlayer.pause();
       setPlaying(false);
     } else {
       musicPlayer.load();
       musicPlayer.play();
+      rainPlayer.play();
+
       setPlaying(true);
     }
   }
